@@ -1,0 +1,281 @@
+/* General Body and Navbar Styling */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.navbar {
+    background-color: #264143;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 2em;
+    padding: 10px 0;
+}
+
+#nav-links {
+    margin-top: 10px;
+}
+
+#nav-links a {
+    color: #E99F4C;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#birthdays-list {
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Form Area Styling */
+.form_area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #EDDCD9;
+    padding: 15px;
+    border: 2px solid #264143;
+    border-radius: 20px;
+    box-shadow: 3px 4px 0px 1px #E99F4C;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box; /* Ensures padding doesn't increase width */
+}
+
+.title {
+    color: #264143;
+    font-weight: 900;
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+.sub_title {
+    font-weight: 600;
+    margin: 5px 0;
+}
+
+.form_group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns labels and inputs */
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form_style {
+    outline: none;
+    border: 2px solid #264143;
+    box-shadow: 3px 4px 0px 1px #E99F4C;
+    width: 100%; /* Ensures input fills parent container */
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 15px;
+    box-sizing: border-box; /* Prevents overflow due to padding */
+}
+
+.form_style:focus, .btn:focus {
+    transform: translateY(4px);
+    box-shadow: 1px 2px 0px 0px #E99F4C;
+}
+
+.btn {
+    padding: 15px;
+    margin: 25px 0 0; /* Ensure margin doesn't push button out of view */
+    width: 100%; /* Ensures button fills parent container */
+    font-size: 15px;
+    background: #DE5499;
+    border-radius: 10px;
+    font-weight: 800;
+    box-shadow: 3px 3px 0px 0px #E99F4C;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.link {
+    font-weight: 800;
+    color: #264143;
+    padding: 5px;
+}
+
+/* Card Styling */
+.card {
+    border: 2px solid #264143;
+    border-radius: 10px;
+    box-shadow: 3px 3px 0px 0px #E99F4C;
+    text-align: center;
+    width: calc(100% - 40px); /* Ensure card stays within screen width */
+    max-width: 222px;
+    box-sizing: border-box;
+    margin: 10px 0; /* Adds spacing between cards */
+}
+
+.card img {
+    border-radius: 50%;
+    border: 1.5px solid #264143;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 15px 0 0;
+}
+
+.card h2 {
+    color: #264143;
+    font-weight: 700;
+    margin: 10px 0 5px;
+}
+
+.card p {
+    color: #E99F4C;
+    font-weight: 600;
+    margin: 10px 0 0;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .navbar h1 {
+        font-size: 1.8em;
+    }
+
+    #nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #nav-links a {
+        margin: 5px 0;
+    }
+
+    .container {
+        padding:20px 10px;
+    }
+
+    .form_area {
+        padding: 15px;
+    }
+
+    .title {
+        font-size: 1.2em;
+    }
+
+    .btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar h1 {
+        font-size: 1.3em;
+    }
+
+    .container {
+        padding: 5px;
+    }
+
+    .form_area {
+        padding: 10px;
+        max-width: 90%;
+    }
+
+    .title {
+        font-size: 1em;
+    }
+
+    .btn {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    h2#welcome-message {
+        font-size: 1.2em;
+        margin: 10px 0;
+    }
+}
+/* Ensure the body takes up the full height of the viewport */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Flex container to ensure footer is at the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Main content should take up remaining space */
+main {
+    flex: 1;
+}
+
+/* Footer styling */
+#site-footer {
+    background-color: #264143; /* Dark background for the footer */
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 14px;
+    margin-top: auto; /* Pushes the footer to the bottom */
+    width: 100%;
+}
+
+/* Responsive footer styling for smaller screens */
+@media (max-width: 768px) {
+    #site-footer {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    #site-footer {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+}
+
+@media (max-width: 300px) {
+    #site-footer {
+        font-size: 11px;
+        padding: 5px 6px;
+    }
+}

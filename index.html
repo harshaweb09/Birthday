@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Birthday Tracker</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body id="mobile-350px">
+    <nav class="navbar">
+        <h1>Welcome to Birthday Tracker</h1>
+        <div id="nav-links">
+            <a href="birthdays.html">All Birthdays</a>
+            <a href="upcoming.html">Upcoming Birthdays</a>
+            <a href="#" id="logout">Logout</a>
+        </div>
+    </nav>
+    
+    <div class="container" id="container">
+        <h2 id="welcome-message"></h2>
+        
+        <!-- Admin Section -->
+        <div id="admin-section" class="form_area" style="display:none;">
+            <h3>Add New User</h3>
+            <form id="add-user-form">
+                <div class="form_group">
+                    <label class="sub_title" for="user-email">Email</label>
+                    <input placeholder="Enter user email" class="form_style" type="email" id="user-email">
+                </div>
+                <div class="form_group">
+                    <label class="sub_title" for="user-password">Password</label>
+                    <input placeholder="Enter user password" class="form_style" type="password" id="user-password">
+                </div>
+                <button type="submit" class="btn">Add User</button>
+            </form>
+
+            <h3>Add Birthday</h3>
+            <form id="add-birthday-form">
+                <div class="form_group">
+                    <label class="sub_title" for="full-name">Full Name</label>
+                    <input placeholder="Enter full name" class="form_style" type="text" id="full-name">
+                </div>
+                <div class="form_group">
+                    <label class="sub_title" for="dob">Date of Birth</label>
+                    <input placeholder="Enter date of birth (DD/MM/YYYY)" class="form_style" type="text" id="dob">
+                </div>
+                <div class="form_group">
+                    <label class="sub_title" for="profile-photo">Profile Photo</label>
+                    <input class="form_style" type="file" id="profile-photo">
+                </div>
+                <button type="submit" class="btn">Add Birthday</button>
+            </form>
+        </div>
+    </div>
+
+    <footer id="site-footer">
+        <p class="copyright">
+            &copy; 2024 B.C.A. Boys @ Harshini Degree College, Ongole
+        </p>
+    </footer>
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
