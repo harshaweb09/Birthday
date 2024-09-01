@@ -12,7 +12,6 @@ import {
   collection,
   addDoc,
   query,
-  orderBy,
   getDocs
 } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
 import {
@@ -150,29 +149,52 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
+// Function to format the date as "July 4th"
+const formatDate = (date) => {
+  const options = { month: 'long', day: 'numeric' };
+  const day = date.getDate();
+  const suffix = day === 1 || day === 21 || day === 31 ? 'st' :
+                 day === 2 || day === 22 ? 'nd' :
+                 day === 3 || day === 23 ? 'rd' : 'th';
+  return date.toLocaleDateString('en-US', options) + suffix;
+};
+
 // Display Birthdays
 const displayBirthdays = async () => {
   try {
-    const q = query(collection(db, "birthdays"), orderBy("dob"));
+    const q = query(collection(db, "birthdays"));
     const querySnapshot = await getDocs(q);
     const birthdaysList = document.getElementById("birthdays-list");
     const upcomingList = document.getElementById("upcoming-list");
 
     if (birthdaysList || upcomingList) {
+      // Convert Firestore documents to an array and sort by fullName
+      const birthdaysArray = [];
       querySnapshot.forEach((doc) => {
         const birthday = doc.data();
+        birthdaysArray.push(birthday);
+      });
+
+      // Sort the array alphabetically by fullName
+      birthdaysArray.sort((a, b) => a.fullName.localeCompare(b.fullName));
+
+      birthdaysArray.forEach((birthday) => {
+        const [day, month, year] = birthday.dob.split("/");
+        const dob = new Date(`${year}-${month}-${day}`);
+        const formattedDate = formatDate(dob);
+
         const birthdayCard = `
           <div class="card">
             <img src="${birthday.photoURL}" alt="${birthday.fullName}">
             <h2>${birthday.fullName}</h2>
-            <p>${new Date(birthday.dob).toLocaleDateString()}</p>
+            <p>${formattedDate}</p>
           </div>
         `;
         if (birthdaysList) birthdaysList.innerHTML += birthdayCard;
 
         // Check if the birthday is within the next 3 days
         const today = new Date();
-        const birthdayDate = new Date(birthday.dob);
+        const birthdayDate = new Date(`${year}-${month}-${day}`);
         birthdayDate.setFullYear(today.getFullYear());
 
         const diffTime = birthdayDate - today;
