@@ -137,8 +137,7 @@ html, body {
     border-radius: 10px;
     box-shadow: 0px 0px 20px #0b2400;
     text-align: center;
-    width: calc(100% - 40px); /* Ensure card stays within screen width */
-    max-width: 222px;
+    width: 222px;
     box-sizing: border-box;
     margin: 10px 0; /* Adds spacing between cards */
 }
@@ -258,6 +257,14 @@ main {
     width: 100%;
 }
 
+.no-birthdays-message {
+    color: #264143;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 100px 20px 20px;
+    text-align: center;
+}
+
 /* Responsive footer styling for smaller screens */
 @media (max-width: 768px) {
     #site-footer {
@@ -277,5 +284,94 @@ main {
     #site-footer {
         font-size: 15px;
         padding: 5px 6px;
+    }
+}
+
+/* Sort Options Styling */
+#sort-options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#sort-options label {
+    color: #264143;
+    font-weight: 600;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+#sort-options select {
+    padding: 10px;
+    border: 2px solid #264143;
+    border-radius: 4px;
+    font-size: 16px;
+    box-shadow: 3px 4px 0px 1px #E99F4C;
+    cursor: pointer;
+    outline: none;
+    background-color: #fff;
+}
+
+/* Responsive Design for Sort Options */
+@media (max-width: 768px) {
+    #sort-options label {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    #sort-options select {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    #sort-options {
+        margin: 15px 0;
+        padding: 8px;
+    }
+
+    #sort-options label {
+        font-size: 14px;
+    }
+
+    #sort-options select {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .no-birthdays-message{
+        margin: 80px 20px 20px;  
+    }
+}
+
+@media (max-width: 300px) {
+    #sort-options {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    #sort-options {
+        margin: 10px 0;
+        padding: 5px;
+    }
+
+    #sort-options label {
+        font-size: 12px;
+    }
+
+    #sort-options select {
+        font-size: 12px;
+        padding: 6px;
+    }
+    
+    .no-birthdays-message{
+        margin: 60px 20px 20px;  
     }
 }
