@@ -135,7 +135,7 @@ html, body {
 .card {
     border: 2px solid #264143;
     border-radius: 10px;
-    box-shadow: 3px 3px 0px 0px #E99F4C;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     text-align: center;
     width: calc(100% - 40px); /* Ensure card stays within screen width */
     max-width: 222px;
