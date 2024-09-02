@@ -21,7 +21,7 @@ html, body {
 
 .navbar h1 {
     margin: 0;
-    font-size: 2em;
+    font-size: 2.5em;
     padding: 10px 0;
 }
 
@@ -33,7 +33,7 @@ html, body {
     color: #E99F4C;
     margin: 0 10px;
     text-decoration: none;
-    font-size: 0.9em;
+    font-size: 1.3em;
 }
 
 .container {
@@ -73,7 +73,7 @@ html, body {
 .title {
     color: #264143;
     font-weight: 900;
-    font-size: 1.5em;
+    font-size: 1.8em;
     margin: 20px 0;
 }
 
@@ -98,7 +98,7 @@ html, body {
     width: 100%; /* Ensures input fills parent container */
     padding: 12px;
     border-radius: 4px;
-    font-size: 15px;
+    font-size: 20px;
     box-sizing: border-box; /* Prevents overflow due to padding */
 }
 
@@ -111,7 +111,7 @@ html, body {
     padding: 15px;
     margin: 25px 0 0; /* Ensure margin doesn't push button out of view */
     width: 100%; /* Ensures button fills parent container */
-    font-size: 15px;
+    font-size: 20px;
     background: #DE5499;
     border-radius: 10px;
     font-weight: 800;
@@ -167,7 +167,7 @@ html, body {
 /* Media Queries for Mobile Responsiveness */
 @media (max-width: 768px) {
     .navbar h1 {
-        font-size: 1.8em;
+        font-size: 2.1em;
     }
 
     #nav-links {
@@ -189,7 +189,7 @@ html, body {
     }
 
     .title {
-        font-size: 1.2em;
+        font-size: 1.5em;
     }
 
     .btn {
@@ -200,7 +200,7 @@ html, body {
 
 @media (max-width: 480px) {
     .navbar h1 {
-        font-size: 1.3em;
+        font-size: 1.6em;
     }
 
     .container {
@@ -213,16 +213,16 @@ html, body {
     }
 
     .title {
-        font-size: 1em;
+        font-size: 1.3em;
     }
 
     .btn {
         padding: 8px;
-        font-size: 12px;
+        font-size: 16px;
     }
 
     h2#welcome-message {
-        font-size: 1.2em;
+        font-size: 1.5em;
         margin: 10px 0;
     }
 }
@@ -253,7 +253,7 @@ main {
     color: white;
     text-align: center;
     padding: 10px 15px;
-    font-size: 14px;
+    font-size: 18px;
     margin-top: auto; /* Pushes the footer to the bottom */
     width: 100%;
 }
@@ -261,21 +261,21 @@ main {
 /* Responsive footer styling for smaller screens */
 @media (max-width: 768px) {
     #site-footer {
-        font-size: 13px;
+        font-size: 17px;
         padding: 8px 10px;
     }
 }
 
 @media (max-width: 480px) {
     #site-footer {
-        font-size: 12px;
+        font-size: 16px;
         padding: 6px 8px;
     }
 }
 
 @media (max-width: 300px) {
     #site-footer {
-        font-size: 11px;
+        font-size: 15px;
         padding: 5px 6px;
     }
 }
