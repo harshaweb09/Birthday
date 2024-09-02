@@ -38,6 +38,16 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
+// Show the loading overlay
+function showLoading() {
+  document.getElementById('loading-overlay').style.display = 'flex';
+}
+
+// Hide the loading overlay
+function hideLoading() {
+  document.getElementById('loading-overlay').style.display = 'none';
+}
+
 // Authentication Handling
 const loginForm = document.getElementById("login-form");
 if (loginForm) {
@@ -45,6 +55,7 @@ if (loginForm) {
     e.preventDefault();
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
+    showLoading();
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         window.location.href = "index.html";
@@ -52,6 +63,9 @@ if (loginForm) {
       .catch((error) => {
         console.error("Error logging in: ", error);
         alert("Login failed. Please check your credentials.");
+      })
+      .finally(() => {
+        hideLoading();
       });
   });
 }
@@ -61,6 +75,7 @@ if (resetPasswordForm) {
   resetPasswordForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const email = document.getElementById("email").value;
+    showLoading();
     sendPasswordResetEmail(auth, email)
       .then(() => {
         alert("Password reset email sent!");
@@ -69,6 +84,9 @@ if (resetPasswordForm) {
       .catch((error) => {
         console.error("Error resetting password: ", error);
         alert("Failed to send password reset email. Please try again.");
+      })
+      .finally(() => {
+        hideLoading();
       });
   });
 }
@@ -92,6 +110,7 @@ onAuthStateChanged(auth, (user) => {
     if (addUserForm) {
       addUserForm.addEventListener("submit", async (e) => {
         e.preventDefault();
+        showLoading();
         const userEmail = document.getElementById("user-email").value;
         const userPassword = document.getElementById("user-password").value;
         try {
@@ -101,6 +120,8 @@ onAuthStateChanged(auth, (user) => {
         } catch (error) {
           console.error("Error adding user: ", error);
           alert("Failed to add user. Please try again.");
+        } finally {
+          hideLoading();
         }
       });
     }
@@ -110,6 +131,7 @@ onAuthStateChanged(auth, (user) => {
     if (addBirthdayForm) {
       addBirthdayForm.addEventListener("submit", async (e) => {
         e.preventDefault();
+        showLoading();
         const fullName = document.getElementById("full-name").value;
         const dob = document.getElementById("dob").value;
         const profilePhotoInput = document.getElementById("profile-photo");
@@ -117,6 +139,7 @@ onAuthStateChanged(auth, (user) => {
 
         if (!profilePhoto) {
           alert("Please upload a profile photo.");
+          hideLoading();
           return;
         }
 
@@ -135,6 +158,8 @@ onAuthStateChanged(auth, (user) => {
         } catch (error) {
           console.error("Error adding birthday: ", error);
           alert("Failed to add birthday. Please try again.");
+        } finally {
+          hideLoading();
         }
       });
     }
@@ -172,6 +197,7 @@ function sortChronologically(birthdays) {
 
 // Display Birthdays
 const displayBirthdays = async () => {
+  showLoading();
   try {
     const q = query(collection(db, "birthdays"));
     const querySnapshot = await getDocs(q);
@@ -231,6 +257,8 @@ const displayBirthdays = async () => {
   } catch (error) {
     console.error("Error fetching birthdays: ", error);
     alert("Failed to load birthdays.");
+  } finally {
+    hideLoading();
   }
 };
 
@@ -256,6 +284,7 @@ function renderBirthdays(birthdaysArray, container) {
 
 // Display Today's Birthday Card or Message
 const displayTodaysBirthday = async () => {
+  showLoading();
   try {
     const q = query(collection(db, "birthdays"));
     const querySnapshot = await getDocs(q);
@@ -306,6 +335,8 @@ const displayTodaysBirthday = async () => {
   } catch (error) {
     console.error("Error fetching today's birthday: ", error);
     alert("Failed to load today's birthday.");
+  } finally {
+    hideLoading();
   }
 };
 
@@ -327,6 +358,7 @@ const logoutLink = document.getElementById("logout");
 if (logoutLink) {
   logoutLink.addEventListener("click", (e) => {
     e.preventDefault();
+    showLoading();
     signOut(auth)
       .then(() => {
         alert("Logged out successfully.");
@@ -335,6 +367,9 @@ if (logoutLink) {
       .catch((error) => {
         console.error("Error logging out: ", error);
         alert("Failed to log out. Please try again.");
+      })
+      .finally(() => {
+        hideLoading();
       });
   });
 }
